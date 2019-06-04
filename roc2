@@ -1,0 +1,16 @@
+def r1(x, y):
+	if x<10:
+		return [x,y]
+	else:
+		return r1(x%10, y+1) + r2(x//10, y+1)
+
+def r2(x, y):
+	if x<10:
+		return [x,y]
+	else:
+		return r1(x//10, y+1) + r2(x%10, y+1)
+
+def roc2(x):
+	assert(isinstance(x, int))
+	assert(100<x<999)
+	return r1(x, x%10) == [5, 6, 3, 7, 1, 7]
